@@ -1,0 +1,76 @@
+                #1-masala
+izohlar={
+    "boolean:":"mantiqiy qiymat",
+    "float:":"o'nlik son",
+    "for:":"bir amalni qayta-qayta bajarish tsikli",
+    "if:":"shart tekshirish operatori",
+    "integer:":"butun son"
+}
+
+for key, value in izohlar.items():
+    print(key, value)
+
+                #2-masala
+davlatlar={
+    "O'zbekiston": "Toshkent",
+    "AQSH": "Washington D.C.",
+    "Rossiya": "Moskva",
+    "Italiya": "Rim",
+    "Qozog'iston": "Nursulton",
+    "Qirg'iziston": "Bishkek",
+    "Tojikiston": "Dushanbe",
+    "Malayziya": "Kuala-Lumpur",
+    "Singapur": "Singapur"
+}
+
+
+print("Dunyo davlatlari:")
+for davlat in sorted(davlatlar):
+    print(davlat.upper())
+
+print("\nDunyo poytaxtlari:")
+for poytaxt in sorted(davlatlar.values()):
+    print(poytaxt)
+                #3-masala
+davlatlar = {
+    "o'zbekiston": "Toshkent",
+    "aqsh": "Washington D.C.",
+    "rossiya": "Moskva",
+    "italiya": "Rim",
+    "qozog'iston": "Nursulton",
+    "qirg'iziston": "Bishkek",
+    "tojikiston": "Dushanbe",
+    "malayziya": "Kuala-Lumpur",
+    "singapur": "Singapur"
+}
+
+davlat = input("Qaysi davlatning poytaxtini bilishni istaysiz? ").lower()
+
+if davlat in davlatlar:
+    print(f"{davlat}ning poytaxti {davlatlar[davlat]}")
+else:
+    print("Kechirasiz, bizda bu haqida ma'lumot yo'q.")
+
+                    #4-masala
+menu={
+    "osh":20000,
+    "non":4000,
+    "shashlik":15000,
+    "qozonkabob":5000,
+    "pitsa":14000
+}
+buyurtma1=input("3 ta taom buyurtma bering").lower()
+buyurtma2=input("3 ta taom buyurtma bering").lower()
+buyurtma3=input("3 ta taom buyurtma bering").lower()
+if buyurtma1 in menu:
+    print(f"{buyurtma1} {menu[buyurtma1]}so'm")
+else:
+    print(f"kecchirasiz bizda {buyurtma1} yo'q")
+if buyurtma2 in menu:
+    print(f"{buyurtma2} {menu[buyurtma2]}so'm")
+else:
+    print(f"kecchirasiz bizda {buyurtma2} yo'q")
+if buyurtma3 in menu:
+    print(f"{buyurtma3} {menu[buyurtma3]}so'm")
+else:
+    print(f"kecchirasiz bizda {buyurtma3} yo'q")
