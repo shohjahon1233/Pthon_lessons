@@ -1,59 +1,92 @@
-                #1-masala
-savol='svetafor rangini kiriting'
-while True:
-    svetafor=input(savol)
-    if svetafor=="qizil":
-        print(str("rahmat, tog'ri keladi"))
-        break
-    if svetafor=="sariq":
-        print(str("rahmat, tog'ri keladi"))
-        break
-    if svetafor=="yashil":
-        print(str("rahmat, tog'ri keladi"))
-        break
-    else:
-        print("Bu javob notog'ri")
-        continue
+from datetime import datetime
 
-                #2-masala
-import random
+def foydalanuvchi(ism, familiya, tugilgan_yil, tugilgan_joy,
+                  email=None, telefon=None):
+    yosh = datetime.now().year - tugilgan_yil
+    return {
+        "ism": ism,
+        "familiya": familiya,
+        "tugilgan_yil": tugilgan_yil,
+        "tugilgan_joy": tugilgan_joy,
+        "email": email,
+        "telefon": telefon,
+        "yosh": yosh
+    }
 
-tasodifiy_son = random.randint(1, 10)
-
-taxmin = 0
-
-while taxmin != tasodifiy_son:
-    taxmin = int(input("1 dan 10 gacha son kiriting: "))
-
-    if taxmin != tasodifiy_son:
-        print("Noto'g'ri, qayta urinib ko'ring.")
-
-print("Tabriklaymiz, siz topdingiz!")
-                    #3-masala
-dostlar = []
+mijozlar = []
 
 while True:
-    ism = input("Do'stingizning ismini kiriting (to'xtatish uchun 'stop' yozing): ")
+    ism = input("Ism: ")
+    familiya = input("Familiya: ")
+    yil = int(input("Tug'ilgan yil: "))
+    joy = input("Tug'ilgan joy: ")
+    email = input("Email (ixtiyoriy): ")
+    telefon = input("Telefon (ixtiyoriy): ")
 
-    if ism.lower() == "stop":
+    mijoz = foydalanuvchi(
+        ism,
+        familiya,
+        yil,
+        joy,
+        email if email else None,
+        telefon if telefon else None
+    )
+
+    mijozlar.append(mijoz)
+
+    yana = input("Yana mijoz qo'shasizmi? (ha/yo'q): ")
+    if yana.lower() != "ha":
         break
 
-    dostlar.append(ism)
+print("\nMijozlar ro'yxati:")
+for m in mijozlar:
+    print(m)
 
-print("Do'stlaringiz ro'yxati:")
-print(dostlar)
 
-                        #4-masala
-kurs = 12600
+def eng_katta(a, b, c):
+    return max(a, b, c)
 
-while True:
-    summa = input("So'm miqdorini kiriting (chiqish uchun 'exit' yozing): ")
+print("Eng katta:", eng_katta(10, 25, 18))
 
-    if summa.lower() == "exit":
-        print("Dastur tugadi.")
-        break
 
-    summa = float(summa)
-    dollar = summa / kurs
+import math
 
-    print("Dollar:", round(dollar, 2), "USD")
+def aylana(radius):
+    return {
+        "radius": radius,
+        "diametr": 2 * radius,
+        "perimetr": 2 * math.pi * radius,
+        "yuza": math.pi * radius ** 2
+    }
+
+print(aylana(5))
+
+
+def tub_sonlar(boshlanish, tugash):
+    natija = []
+
+    for son in range(max(2, boshlanish), tugash + 1):
+        tub = True
+        for i in range(2, int(son ** 0.5) + 1):
+            if son % i == 0:
+                tub = False
+                break
+        if tub:
+            natija.append(son)
+
+    return natija
+
+print(tub_sonlar(1, 50))
+
+
+def fibonacci(n):
+    royxat = []
+    a, b = 1, 1
+
+    while len(royxat) < n:
+        royxat.append(a)
+        a, b = b, a + b
+
+    return royxat
+
+print(fibonacci(10))
